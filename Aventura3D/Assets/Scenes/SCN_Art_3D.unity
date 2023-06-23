@@ -927,7 +927,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uIGunUpdaters: []
-  gunBase: {fileID: 3394802510672115412, guid: e865b158eac0c244f98364b69d052c25, type: 3}
+  gunShootLimit: {fileID: 3394802510672115412, guid: e865b158eac0c244f98364b69d052c25, type: 3}
+  gunShootAngle: {fileID: 3969058706413172672, guid: 361657a989e53d54ebbd33b3146001ce, type: 3}
   gunPosition: {fileID: 1795571639}
 --- !u!1 &160361696
 GameObject:
