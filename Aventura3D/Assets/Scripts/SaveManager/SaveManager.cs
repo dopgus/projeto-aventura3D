@@ -11,7 +11,7 @@ public class SaveManager : Singleton<SaveManager>
     protected override void Awake()
     {
         base.Awake();
-
+        DontDestroyOnLoad(gameObject);
         _saveSetup = new SaveSetup();
         _saveSetup.lastlevel = 2;
         _saveSetup.playerName = "Gustavo";
