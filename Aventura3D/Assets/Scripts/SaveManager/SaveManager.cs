@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,15 +7,34 @@ using Ebac.Core.Singleton;
 
 public class SaveManager : Singleton<SaveManager>
 {
-    private SaveSetup _saveSetup;
+    [SerializeField] private SaveSetup _saveSetup;
+    private string _path = Application.streamingAssetsPath + "/save,txt";
+
+    public int lastLevel;
+
+    public Action<SaveSetup> FileLoaded;
+
+    public SaveSetup Setup
+    {
+        get { return _saveSetup; }
+    }
 
     protected override void Awake()
     {
         base.Awake();
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void CreateNewSave()
+    {
         _saveSetup = new SaveSetup();
-        _saveSetup.lastlevel = 2;
+        _saveSetup.lastlevel = 0;
         _saveSetup.playerName = "Gustavo";
+    }
+
+    private void Start()
+    {
+        Invoke(nameof(Load), .1f);
     }
 
     #region SAVE
@@ -26,6 +46,13 @@ public class SaveManager : Singleton<SaveManager>
         SaveFile(setupToJson);
     }
 
+    public void SaveItems()
+    {
+        _saveSetup.coins = Items.ItemManager.Instance.GetItemByType(Items.ItemType.COIN).soInt.value;
+        _saveSetup.health = Items.ItemManager.Instance.GetItemByType(Items.ItemType.LIFE_PACK).soInt.value;
+        Save();
+    }
+
     public void SaveName(string text)
     {
         _saveSetup.playerName = text;
@@ -35,6 +62,7 @@ public class SaveManager : Singleton<SaveManager>
     public void SaveLastLevel(int level)
     {
         _saveSetup.lastlevel = level;
+        SaveItems();
         Save();
     }
 
@@ -42,10 +70,28 @@ public class SaveManager : Singleton<SaveManager>
 
     private void SaveFile(string json)
     {
-        string path = Application.streamingAssetsPath + "/save,txt";
+        Debug.Log(_path);
+        File.WriteAllText(_path, json);
+    }
 
-        Debug.Log(path);
-        File.WriteAllText(path, json);
+    [NaughtyAttributes.Button]
+    private void Load()
+    {
+        string fileLoaded = "";
+
+        if (File.Exists(_path))
+        {
+            fileLoaded = File.ReadAllText(_path);
+            _saveSetup = JsonUtility.FromJson<SaveSetup>(fileLoaded);
+            lastLevel = _saveSetup.lastlevel;
+        }
+        else
+        {
+            CreateNewSave();
+            Save();
+        }
+
+        FileLoaded.Invoke(_saveSetup);
     }
 
     [NaughtyAttributes.Button]
@@ -65,5 +111,8 @@ public class SaveManager : Singleton<SaveManager>
 public class SaveSetup
 {
     public int lastlevel;
+    public float coins;
+    public float health;
     public string playerName;
+    public string qualquer;
 }
