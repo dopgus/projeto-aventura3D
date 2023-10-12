@@ -17769,6 +17769,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32f3bae713beac24b80e644eb7d89bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicType: 1
+  audioSource: {fileID: 425119217}
 --- !u!82 &425119217
 AudioSource:
   m_ObjectHideFlags: 0
@@ -21194,6 +21196,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8043139984699745673, guid: 6a85956ddea0a304da62a369edd2c2fa, type: 3}
   m_PrefabInstance: {fileID: 824417912}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &825221228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 825221230}
+  - component: {fileID: 825221229}
+  m_Layer: 0
+  m_Name: SFXPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &825221229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825221228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 666eb3290baae714482e5ecdebc958b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolSize: 25
+--- !u!4 &825221230
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825221228}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 498.89127, y: 6.2905807, z: 247.3135}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &848120665
 GameObject:
   m_ObjectHideFlags: 0
@@ -56450,6 +56496,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7408464337071504853, guid: fe0a0fb185916e340bf2f803dd0af2f9, type: 3}
+      propertyPath: sfxSetups.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7408464337071504853, guid: fe0a0fb185916e340bf2f803dd0af2f9, type: 3}
+      propertyPath: sfxSetups.Array.data[0].sfxType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7408464337071504853, guid: fe0a0fb185916e340bf2f803dd0af2f9, type: 3}
+      propertyPath: sfxSetups.Array.data[0].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe0a0fb185916e340bf2f803dd0af2f9, type: 3}
 --- !u!4 &1941159560338586701 stripped
