@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Ebac.Core.Singleton;
 
-public class EndGame : MonoBehaviour
+public class EndGame : Singleton<EndGame>
 {
     public List<GameObject> endGameObjects;
 
@@ -11,8 +12,9 @@ public class EndGame : MonoBehaviour
 
     public int currentLevel = 1;
 
-    private void Awake()
+    new private void Awake()
     {
+        base.Awake();
         endGameObjects.ForEach(i => i.SetActive(false));
     }
 
