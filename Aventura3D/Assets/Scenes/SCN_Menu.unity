@@ -4313,6 +4313,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8326232607601220532, guid: ba72ed1b994be0f449ec2ac3b8466564, type: 3}
+      propertyPath: _saveSetup.coins
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8326232607601220532, guid: ba72ed1b994be0f449ec2ac3b8466564, type: 3}
+      propertyPath: _saveSetup.lastlevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8326232607601220532, guid: ba72ed1b994be0f449ec2ac3b8466564, type: 3}
+      propertyPath: _saveSetup.playerName
+      value: Gustavo
+      objectReference: {fileID: 0}
     - target: {fileID: 8326232607601220533, guid: ba72ed1b994be0f449ec2ac3b8466564, type: 3}
       propertyPath: m_Name
       value: PFB_SaveManager
